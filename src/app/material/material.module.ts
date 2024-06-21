@@ -49,8 +49,7 @@ import {ReactiveFormsModule} from '@angular/forms'
     MatPaginatorModule,
     MatSortModule,
     MatSort,
-    MatCardModule,
-   
+    MatCardModule,   
     ReactiveFormsModule
   ]
 })

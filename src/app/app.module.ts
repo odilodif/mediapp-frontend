@@ -9,6 +9,7 @@ import { PacienteComponentComponent } from './pages/paciente-component/paciente-
 import { MedicoComponentComponent } from './pages/medico-component/medico-component.component';
 import {HttpClientModule } from '@angular/common/http';
 import { PacienteEdicionComponent } from './pages/paciente-component/paciente-edicion/paciente-edicion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PacienteEdicionComponent } from './pages/paciente-component/paciente-ed
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
