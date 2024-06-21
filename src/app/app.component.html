@@ -1,0 +1,88 @@
+<div class="example-container">
+
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
+      <mat-icon *ngIf="drawer.opened">close</mat-icon>
+    </button>
+
+    <h1 class="example-spacer">MEDIAPP</h1>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_box</mat-icon>
+        <span>Mi perfil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar Sesion</span>
+      </button>
+
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <img src="film-app-tv.png" alt="10" width="50">
+      <!--button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button-->
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;" > 
+        <mat-icon>search</mat-icon>
+        <span>Buscar</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;">
+        <mat-icon>insert_drive_file</mat-icon>
+        <span>Registrar E.</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;" >
+        <mat-icon>view_carousel</mat-icon>
+        <span>Registrar W.</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;">
+        <mat-icon>star_rate</mat-icon>
+        <span>Especialidades</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/medico" style="cursor: pointer;">
+        <mat-icon>healing</mat-icon>
+        <span>Medicos</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;">
+        <mat-icon>assignment</mat-icon>
+        <span>Examenes</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/paciente" style="cursor: pointer;">
+        <mat-icon>accessibility</mat-icon>
+        <span>Pacientes</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;">
+        <mat-icon>assessment</mat-icon>
+        <span>Reportes</span>
+      </button>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+ 
+
+</div>
