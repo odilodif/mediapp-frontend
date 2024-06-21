@@ -1,7 +1,11 @@
 <mat-card> Ingres los datos del Paciente </mat-card>
 
-<form class="example-container">
-    <div>
+<form class="example-container" [formGroup]="form" #formPacientes="ngForm"  (ngSubmit)="operar()">
+   
+   
+   
+   
+    <!--div>
         <mat-form-field class="example-full-width">
             <input mat-input placeholder="ID" fieldControlName="id">
         </mat-form-field>
@@ -27,8 +31,12 @@
         <input mat-input placeholder="Direccion"  required fieldControlName="direccion" >
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">
+    <button mat-raised-button color="primary" type="submit" [disabled]="formPacientes.invalid">
         <mat-icon>done</mat-icon>
         <span>Aceptar</span>
     </button>
+    <button mat-raised-button color="accent" routerLink="/paciente" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button-->
 </form>

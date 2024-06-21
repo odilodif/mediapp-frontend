@@ -22,4 +22,8 @@ export class PacienteEdicionComponent implements OnInit {
       'direccion': new FormControl(''),
     });
   }
+
+  operar(){
+    
+  }
 }
