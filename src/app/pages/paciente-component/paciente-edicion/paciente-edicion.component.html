@@ -1,34 +1,33 @@
-<mat-card> Ingres los datos del Paciente </mat-card>
+<mat-card> Ingrese los datos del Paciente </mat-card>
 
-<form class="example-container" [formGroup]="form" #formPacientes="ngForm"  (ngSubmit)="operar()">
-   
-   
-   
-   
-    <!--div>
+<form class="example-container" [formGroup]="form" #formPacientes="ngForm" (ngSubmit)="operar()">
+    <div>
         <mat-form-field class="example-full-width">
-            <input mat-input placeholder="ID" fieldControlName="id">
+            <!--mat-label>Input</mat-label-->
+            <input matInput placeholder="ID" fieldControlName="id">
         </mat-form-field>
 
     </div>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombres" fieldControlName="nombres">
+    </mat-form-field>
+   
+ 
+     <mat-form-field class="example-full-width">
+        <input matInput placeholder="Apellidos"  required fieldControlName="apellidos">
+    </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input mat-input placeholder="Nombres" minlength="5" required fieldControlName="nombres">
+        <input matInput placeholder="DNI"  required fieldControlName="dni" type="number">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input mat-input placeholder="Apellidos"  required fieldControlName="apellidos">
+        <input matInput placeholder="Telefono"  required fieldControlName="dni" type="number">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input mat-input placeholder="DNI"  required fieldControlName="dni" type="number">
+        <input matInput placeholder="Telefono"  required fieldControlName="telefono" type="number">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input mat-input placeholder="Telefono"  required fieldControlName="dni" type="number">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <input mat-input placeholder="Telefono"  required fieldControlName="telefono" type="number">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <input mat-input placeholder="Direccion"  required fieldControlName="direccion" >
+        <input matInput placeholder="Direccion"  required fieldControlName="direccion" >
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="formPacientes.invalid">
@@ -38,5 +37,5 @@
     <button mat-raised-button color="accent" routerLink="/paciente" type="button">
         <mat-icon>close</mat-icon>
         <span>Cancelar</span>
-    </button-->
+    </button>
 </form>
