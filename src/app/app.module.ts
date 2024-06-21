@@ -8,12 +8,14 @@ import { MaterialModule } from './material/material.module';
 import { PacienteComponentComponent } from './pages/paciente-component/paciente-component.component';
 import { MedicoComponentComponent } from './pages/medico-component/medico-component.component';
 import {HttpClientModule } from '@angular/common/http';
+import { PacienteEdicionComponent } from './pages/paciente-component/paciente-edicion/paciente-edicion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacienteComponentComponent,
-    MedicoComponentComponent
+    MedicoComponentComponent,
+    PacienteEdicionComponent
   ],
   imports: [
     BrowserModule,
