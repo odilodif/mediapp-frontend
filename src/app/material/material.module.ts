@@ -7,12 +7,12 @@ import {MatDividerModule}  from '@angular/material/divider';
 import {MatMenuModule}  from '@angular/material/menu';
 import {MatIconModule}  from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule,MatFormField} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
-
-
+import {MatCard, MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [],
@@ -30,7 +30,10 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
     MatPaginator,
     MatPaginatorModule,
     MatSortModule,
-    MatSort
+    MatSort,
+    MatCardModule,
+    MatFormField,
+    ReactiveFormsModule
   ],
   exports:[
     MatSidenavModule,
@@ -45,7 +48,10 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
     MatPaginator,
     MatPaginatorModule,
     MatSortModule,
-    MatSort
+    MatSort,
+    MatCardModule,
+    MatFormField,
+    ReactiveFormsModule
   ]
 })
 export class MaterialModule { }

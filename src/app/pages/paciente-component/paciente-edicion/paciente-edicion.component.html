@@ -1,1 +1,34 @@
-<p>paciente-edicion works!</p>
+<mat-card> Ingres los datos del Paciente </mat-card>
+
+<form class="example-container">
+    <div>
+        <mat-form-field class="example-full-width">
+            <input mat-input placeholder="ID" fieldControlName="id">
+        </mat-form-field>
+
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="Nombres" minlength="5" required fieldControlName="nombres">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="Apellidos"  required fieldControlName="apellidos">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="DNI"  required fieldControlName="dni" type="number">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="Telefono"  required fieldControlName="dni" type="number">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="Telefono"  required fieldControlName="telefono" type="number">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input mat-input placeholder="Direccion"  required fieldControlName="direccion" >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+</form>
