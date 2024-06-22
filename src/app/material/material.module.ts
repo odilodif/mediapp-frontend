@@ -14,7 +14,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatCard, MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
@@ -34,7 +34,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSort,
     MatCardModule,   
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   exports:[
     MatSidenavModule,
@@ -52,7 +53,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSort,
     MatCardModule,   
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
