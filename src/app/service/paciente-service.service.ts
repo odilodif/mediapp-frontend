@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Paciente } from '../model/paciente';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacienteServiceService {
-
+pacienteCambio = new Subject<Paciente[]>();
  
   url: string = `${environment.HOST}/pacientes`
 

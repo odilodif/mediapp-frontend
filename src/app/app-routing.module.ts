@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path:'paciente',
     component:PacienteComponentComponent,children:[
-      {path:'nuevo',component:PacienteEdicionComponent}
+      {path:'nuevo',component:PacienteEdicionComponent},
+      {path:'edicion/:id',component:PacienteEdicionComponent}
     ]
   },
   {

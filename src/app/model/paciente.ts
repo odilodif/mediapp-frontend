@@ -1,5 +1,5 @@
 export class Paciente{
-id_aciente?:number;
+idPaciente?:number;
 nombres:string;
 apellidos:string;
 dni: string;
