@@ -50,6 +50,7 @@ export class PacienteEdicionComponent implements OnInit {
      this.pacienteService.modificar(paciente).subscribe(()=>{
       this.pacienteService.listarPacientes().subscribe((data)=>{
         this.pacienteService.pacienteCambio.next(data)
+        this.pacienteService.mensajeCambio.next('SE MODIFICO!!!')
       });
      });
     
@@ -57,7 +58,8 @@ export class PacienteEdicionComponent implements OnInit {
 
       this.pacienteService.registrar(paciente).subscribe(()=>{
         this.pacienteService.listarPacientes().subscribe((data)=>{
-          this.pacienteService.pacienteCambio.next(data)
+          this.pacienteService.pacienteCambio.next(data);
+          this.pacienteService.mensajeCambio.next('SE CREO NUEVO REGISTRO!!!')
         });
       });
     }

@@ -6,6 +6,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,12 +19,21 @@ export class PacienteComponentComponent implements OnInit {
   dataSource: MatTableDataSource<Paciente>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private pacienteService: PacienteServiceService) {
+  constructor(private pacienteService: PacienteServiceService,
+    private snackBar: MatSnackBar
+  ) {
 
   }
 
   ngOnInit(): void {
-    this.pacienteService.pacienteCambio.subscribe(data=>{
+
+    this.pacienteService.mensajeCambio.subscribe(data => {
+      this.snackBar.open(data, 'Aviso', {
+        duration: 2000
+      })
+    });
+
+    this.pacienteService.pacienteCambio.subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -45,9 +55,11 @@ export class PacienteComponentComponent implements OnInit {
   }
 
   eliminar(idPaciente: number) {
-    this.pacienteService.eliminar(idPaciente).subscribe(()=>{
-      this.pacienteService.listarPacientes().subscribe((data)=>{
-        this.pacienteService.pacienteCambio.next(data)
+    this.pacienteService.eliminar(idPaciente).subscribe(() => {
+      this.pacienteService.listarPacientes().subscribe((data) => {
+        this.pacienteService.pacienteCambio.next(data);
+        this.pacienteService.mensajeCambio.next('SE ELIMINO!!!')
+     
       });
     })
   }

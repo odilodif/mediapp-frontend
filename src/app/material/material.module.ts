@@ -13,7 +13,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatCard, MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms'
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -33,7 +33,8 @@ import {ReactiveFormsModule} from '@angular/forms'
     MatSortModule,
     MatSort,
     MatCardModule,   
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   exports:[
     MatSidenavModule,
@@ -50,7 +51,8 @@ import {ReactiveFormsModule} from '@angular/forms'
     MatSortModule,
     MatSort,
     MatCardModule,   
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

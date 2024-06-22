@@ -8,31 +8,32 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PacienteServiceService {
-pacienteCambio = new Subject<Paciente[]>();
- 
+  pacienteCambio = new Subject<Paciente[]>();
+  mensajeCambio = new Subject<string>();
   url: string = `${environment.HOST}/pacientes`
 
-  constructor( private http: HttpClient) {
+
+  constructor(private http: HttpClient) {
 
   }
 
-  listarPacientes(){
-   return  this.http.get<Paciente[]>(this.url);
+  listarPacientes() {
+    return this.http.get<Paciente[]>(this.url);
   }
 
-  listarPorId(idPaciente: number){
-    return  this.http.get<Paciente>(`${this.url}/${idPaciente}`);
-   }
+  listarPorId(idPaciente: number) {
+    return this.http.get<Paciente>(`${this.url}/${idPaciente}`);
+  }
 
-   registrar(paciente: Paciente){
-    return  this.http.post(this.url, paciente);
-   }
+  registrar(paciente: Paciente) {
+    return this.http.post(this.url, paciente);
+  }
 
-   modificar(paciente: Paciente){
-    return  this.http.put(this.url, paciente);
-   }
+  modificar(paciente: Paciente) {
+    return this.http.put(this.url, paciente);
+  }
 
-   eliminar(idPaciente: number){
-    return  this.http.delete(`${this.url}/${idPaciente}`);
-   }
+  eliminar(idPaciente: number) {
+    return this.http.delete(`${this.url}/${idPaciente}`);
+  }
 }
