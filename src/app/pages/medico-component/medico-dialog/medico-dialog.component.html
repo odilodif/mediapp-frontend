@@ -9,7 +9,7 @@
         <input matInput placeholder="CMP" [(ngModel)]="medico.cmp">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="foto" [(ngModel)]="medico.fotoUrl"  alt="" width="50%" *ngIf="medico.fotoUrl!=null">
+        <input matInput placeholder="foto" [(ngModel)]="medico.fotoUrl"  alt="" width="50%" >
     </mat-form-field>
     <img mat-card-image  [src]="medico.fotoUrl"> 
 

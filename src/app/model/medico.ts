@@ -1,5 +1,5 @@
 export class Medico{
-    idMedico?:number;
+    idMedico:number;
     cmp:string;
     apellidos:string;
     fotoUrl:string;
