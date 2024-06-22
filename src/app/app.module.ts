@@ -9,21 +9,24 @@ import { PacienteComponentComponent } from './pages/paciente-component/paciente-
 import { MedicoComponentComponent } from './pages/medico-component/medico-component.component';
 import {HttpClientModule } from '@angular/common/http';
 import { PacienteEdicionComponent } from './pages/paciente-component/paciente-edicion/paciente-edicion.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MedicoDialogComponent } from './pages/medico-component/medico-dialog/medico-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacienteComponentComponent,
     MedicoComponentComponent,
-    PacienteEdicionComponent
+    PacienteEdicionComponent,
+    MedicoDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

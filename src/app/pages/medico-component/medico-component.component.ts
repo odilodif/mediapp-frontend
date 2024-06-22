@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MedicoService } from '../../service/medico.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { MedicoDialogComponent } from './medico-dialog/medico-dialog.component';
 
 @Component({
   selector: 'app-medico-component',
@@ -14,28 +15,28 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MedicoComponentComponent implements OnInit {
   dataSource: MatTableDataSource<Medico>;
-  displayedColumns: string[] = ['idMedico', 'nombres', 'apellidos','cmp', 'fotoUrl','acciones'];
+  displayedColumns: string[] = ['idMedico', 'nombres', 'apellidos', 'cmp', 'fotoUrl', 'acciones'];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private medicoService: MedicoService,
     private snackBar: MatSnackBar,
-    private dialog:MatDialog
+    private dialog: MatDialog
   ) {
 
   }
 
   ngOnInit(): void {
-   /* this.medicoService.mensajeCambio.subscribe(data => {
-      this.snackBar.open(data, 'Aviso', {
-        duration: 2000
-      })
-    });
-
-    this.medicoService.medicoCambio.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    })*/
+    /* this.medicoService.mensajeCambio.subscribe(data => {
+       this.snackBar.open(data, 'Aviso', {
+         duration: 2000
+       })
+     });
+ 
+     this.medicoService.medicoCambio.subscribe(data => {
+       this.dataSource = new MatTableDataSource(data);
+       this.dataSource.sort = this.sort;
+       this.dataSource.paginator = this.paginator;
+     })*/
 
 
     this.medicoService.listarMedico().subscribe((data) => {
@@ -47,16 +48,19 @@ export class MedicoComponentComponent implements OnInit {
     })
   }
 
-  applyFilter(event: any){
+  applyFilter(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  eliminar(row: Medico){
+  eliminar(row: Medico) {
 
   }
-  abrirDialogo(){
-
+  abrirDialogo(medic: Medico) {
+    this.dialog.open(MedicoDialogComponent, {
+      width: '300px',
+      data: medic
+    })
   }
 
-  
+
 }
