@@ -11,6 +11,9 @@ import {HttpClientModule } from '@angular/common/http';
 import { PacienteEdicionComponent } from './pages/paciente-component/paciente-edicion/paciente-edicion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MedicoDialogComponent } from './pages/medico-component/medico-dialog/medico-dialog.component';
+import { EspecialidadComponent } from './pages/especialidad/especialidad.component';
+import { ExamenComponent } from './pages/examen/examen.component';
+import { ExamenEdicionComponent } from './pages/examen/examen-edicion/examen-edicion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { MedicoDialogComponent } from './pages/medico-component/medico-dialog/me
     PacienteComponentComponent,
     MedicoComponentComponent,
     PacienteEdicionComponent,
-    MedicoDialogComponent
+    MedicoDialogComponent,
+    EspecialidadComponent,
+    ExamenComponent,
+    ExamenEdicionComponent
   ],
   imports: [
     BrowserModule,

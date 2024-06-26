@@ -1,0 +1,28 @@
+<mat-card> Ingrese los datos del Paciente </mat-card>
+
+<form class="example-container" [formGroup]="form" #formPacientes="ngForm" (ngSubmit)="operar()">
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <!--mat-label>Input</mat-label-->
+            <input matInput placeholder="ID"  formControlName="idExamen">
+        </mat-form-field>
+
+    </div>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombres" required formControlName="descripcion">
+    </mat-form-field>
+   
+ 
+     <mat-form-field class="example-full-width">
+        <input matInput placeholder="Apellidos"  required formControlName="nombre">
+    </mat-form-field>   
+    
+    <button mat-raised-button color="primary" type="submit" [disabled]="formPacientes.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink="/examen" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
