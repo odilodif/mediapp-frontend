@@ -11,7 +11,7 @@ export class EspecialidadService {
 
   especialidadCambio = new Subject<Especialidad[]>();
   mensajeCambio = new Subject<string>();
-  url: string = `${environment.HOST}/examenes`
+  url: string = `${environment.HOST}/especialidades`
   constructor(private http: HttpClient) { 
 
   }

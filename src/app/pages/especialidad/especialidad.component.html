@@ -1,1 +1,52 @@
-<p>especialidad works!</p>
+<mat-toolbar>   Especialidades </mat-toolbar>
+<router-outlet></router-outlet>
+
+<div [hidden]="route.children.length !== 0">
+
+    <div class="example-container mat-elevation-z8">
+        <div  class="example-header">
+            <mat-form-field>
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Buscar Especializacion" #input>
+            </mat-form-field>
+            
+        </div>
+
+
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+            <!-- Position Column -->
+            <ng-container matColumnDef="idEspecialidad">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.idEspecialidad}} </td>
+            </ng-container>
+    
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+    
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button color="primary" [routerLink]="['edicion', element.idEspecialidad ]" > <mat-icon>ballot</mat-icon> </button>
+                    <button mat-button color="accent" (click)="eliminar(element.idEspecialidad)" > <mat-icon>delete</mat-icon> </button>
+        
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+    </div>
+
+</div>
