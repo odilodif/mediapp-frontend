@@ -37,6 +37,12 @@
       </button>
 
       <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/consulta" style="cursor: pointer;">
+        <mat-icon>insert_drive_file</mat-icon>
+        <span>Registrar</span>
+      </button>
+
+      <mat-divider></mat-divider>
       <button mat-menu-item (click)="drawer.toggle()" routerLink="/" style="cursor: pointer;">
         <mat-icon>insert_drive_file</mat-icon>
         <span>Registrar E.</span>

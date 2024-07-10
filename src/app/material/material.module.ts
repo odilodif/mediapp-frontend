@@ -15,6 +15,12 @@ import {MatCard, MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -35,7 +41,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,   
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
   ],
   exports:[
     MatSidenavModule,
@@ -54,7 +64,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,   
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
+  ],
+  providers:[
+{ provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
   ]
 })
 export class MaterialModule { }
