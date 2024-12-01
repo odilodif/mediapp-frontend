@@ -1,0 +1,105 @@
+<mat-toolbar> Registro de Consulta Especial Autocomplete</mat-toolbar>
+<form class="example-container" [formGroup]="form" (ngSubmit)="aceptar()" #consultaForm="ngForm">
+
+    <!--Autocomplete Pacientes-->
+    <mat-form-field class="example-full-width">
+        <mat-label>Paciente Autocomplete</mat-label>
+        <input type="text" formControlName="paciente" placeholder="Paciente Autocomplete" aria-label="Number" matInput
+            [formControl]="myControlPaciente" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostarPaciente"
+            (optionSelected)="seleccionarPaciente($event)">
+            @for (option of pacientesFiltrados | async; track option) {
+            <mat-option [value]="option">{{option.nombres}} {{option.apellidos}}</mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <!--ComboBox Especialidad-->
+    <mat-form-field>
+        <mat-select placeholder="Especialidad Autocomplete" [(value)]="especialidadSeleccionada" formControlName="especialidad">
+            @for (especialidad of especialidades; track especialidad) {
+            <mat-option [value]="especialidad">
+                {{especialidad.nombre}}
+            </mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+    <!--Autocomplete Medicos-->
+    <mat-form-field class="example-full-width">
+        <mat-label>Medico Autocomplete</mat-label>
+        <input type="text" placeholder="Medico Autocomplete" aria-label="Number" matInput [formControl]="myControlMedico"
+            formControlName="medico" [matAutocomplete]="medicos">
+        <mat-autocomplete #medicos="matAutocomplete" [displayWith]="mostarMedico"
+            (optionSelected)="seleccionarMedico($event)">
+            @for (medico of medicosFiltrados | async; track medico) {
+            <mat-option [value]="medico">{{medico.nombres}} {{medico.apellidos}}</mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Escoja la Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" [max]="maxfecha" [(ngModel)]="fechaSeleccionada"
+            formControlName="fecha">
+        <mat-hint>DD/DMM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Enfermedad/Diagnostico Autocomplete" [(ngModel)]="diagnostico"
+                formControlName="diagnostico">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Tratamiento Autocomplete" [(ngModel)]="tratamiento" formControlName="tratamiento">
+        </mat-form-field>
+    </div>
+    <button mat-raised-button type="button" color="primary" (click)="agregar()">Agregar Detalle</button>
+
+
+    <mat-expansion-panel *ngFor="let d of detalleConsulta; let i=index">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ i + 1}} {{d.diagnostico}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Ver Tratamiento
+                <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Tratamiento" value="{{d.tratamiento}}"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" type="button" (click)="removerDiagnostico(i)"> Remover</button>
+
+    </mat-expansion-panel>
+    <mat-form-field>
+        <mat-select placeholder="Examen" [(value)]="examenSeleccionado">
+            @for (examen of examenes; track examen) {
+            <mat-option [value]="examen">
+                {{examen.nombre}}
+            </mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="agregarExamen()"> Agregar Examen</button>
+
+    <mat-toolbar *ngFor="let e of examenesSelecciondos; let i=index ">
+        {{e.nombre}}
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="warn" type="button" (click)="removerExamen(i)">Remover</button>
+    </mat-toolbar>
+
+
+
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="estadoBotonRegistrar()">Registrar</button>
+
+</form>

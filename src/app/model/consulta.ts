@@ -9,7 +9,7 @@ export class Consulta{
     medico:Medico;
     especialidad:Especialidad;
     fecha:string;
-    numConsultorio:string;
+    num_consultorio:string;
     detalleConsulta:DetalleConsulta[];
 
 }

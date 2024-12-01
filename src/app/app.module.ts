@@ -16,6 +16,12 @@ import { ExamenComponent } from './pages/examen/examen.component';
 import { ExamenEdicionComponent } from './pages/examen/examen-edicion/examen-edicion.component';
 import { EspecialidadEdicionComponent } from './pages/especialidad/especialidad-edicion/especialidad-edicion.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { EspecialComponent } from './pages/consulta/especial/especial.component';
+import { WizardComponent } from './pages/consulta/wizard/wizard.component';
+import { HomeComponent } from './pages/home/home/home.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { BuscarDialogoComponent } from './pages/buscar/buscar-dialogo/buscar-dialogo.component';
+import { ReporteComponent } from './pages/reporte/reporte.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +34,14 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
     ExamenComponent,
     ExamenEdicionComponent,
     EspecialidadEdicionComponent,
-    ConsultaComponent
-  ],
+    ConsultaComponent,
+    EspecialComponent,
+    WizardComponent,
+    HomeComponent,
+    BuscarComponent,
+    BuscarDialogoComponent,
+    ReporteComponent
+  ],  
   imports: [
     BrowserModule,
     AppRoutingModule,

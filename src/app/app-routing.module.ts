@@ -8,8 +8,16 @@ import { ExamenComponent } from './pages/examen/examen.component';
 import { ExamenEdicionComponent } from './pages/examen/examen-edicion/examen-edicion.component';
 import { EspecialidadEdicionComponent } from './pages/especialidad/especialidad-edicion/especialidad-edicion.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { EspecialComponent } from './pages/consulta/especial/especial.component';
+import { WizardComponent } from './pages/consulta/wizard/wizard.component';
+import { HomeComponent } from './pages/home/home/home.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { ReporteComponent } from './pages/reporte/reporte.component';
 
 const routes: Routes = [
+  {
+    path: '',component:HomeComponent
+  },
   {
     path: 'paciente',
     component: PacienteComponentComponent, children: [
@@ -33,6 +41,10 @@ const routes: Routes = [
   },
   { path: 'medico', component: MedicoComponentComponent },
   { path: 'consulta', component: ConsultaComponent },
+  { path: 'consulta-especial', component: EspecialComponent },
+  { path: 'consulta-wizard', component: WizardComponent },
+  { path: 'buscar', component: BuscarComponent },
+  { path: 'reporte', component: ReporteComponent },
   {
     path: '**',
     redirectTo: '',
