@@ -6,9 +6,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 
 @Component({
-  selector: 'app-especialidad-edicion',
-  templateUrl: './especialidad-edicion.component.html',
-  styleUrl: './especialidad-edicion.component.css'
+    selector: 'app-especialidad-edicion',
+    templateUrl: './especialidad-edicion.component.html',
+    styleUrl: './especialidad-edicion.component.css',
+    standalone: false
 })
 export class EspecialidadEdicionComponent implements OnInit {
   id: number;

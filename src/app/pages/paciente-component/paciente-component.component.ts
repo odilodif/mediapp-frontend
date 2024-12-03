@@ -10,9 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
-  selector: 'app-paciente-component',
-  templateUrl: './paciente-component.component.html',
-  styleUrl: './paciente-component.component.css'
+    selector: 'app-paciente-component',
+    templateUrl: './paciente-component.component.html',
+    styleUrl: './paciente-component.component.css',
+    standalone: false
 })
 export class PacienteComponentComponent implements OnInit {
   displayedColumns: string[] = ['idPaciente', 'nombres', 'apellidos', 'dni', 'direccion', 'telefono', 'mail', 'acciones'];

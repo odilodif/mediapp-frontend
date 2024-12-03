@@ -8,9 +8,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { ExamenService } from '../../service/examen.service';
 
 @Component({
-  selector: 'app-examen',
-  templateUrl: './examen.component.html',
-  styleUrl: './examen.component.css'
+    selector: 'app-examen',
+    templateUrl: './examen.component.html',
+    styleUrl: './examen.component.css',
+    standalone: false
 })
 export class ExamenComponent implements OnInit {
 

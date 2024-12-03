@@ -17,9 +17,10 @@ import { ConsultaListaExamenDTO } from '../../../dto/consultaListaExamenTDO';
 import { MatStep, MatStepper } from '@angular/material/stepper';
 
 @Component({
-  selector: 'app-wizard',
-  templateUrl: './wizard.component.html',
-  styleUrl: './wizard.component.css'
+    selector: 'app-wizard',
+    templateUrl: './wizard.component.html',
+    styleUrl: './wizard.component.css',
+    standalone: false
 })
 export class WizardComponent implements OnInit {
 

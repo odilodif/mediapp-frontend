@@ -10,9 +10,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { BuscarDialogoComponent } from './buscar-dialogo/buscar-dialogo.component';
 
 @Component({
-  selector: 'app-buscar',
-  templateUrl: './buscar.component.html',
-  styleUrl: './buscar.component.css'
+    selector: 'app-buscar',
+    templateUrl: './buscar.component.html',
+    styleUrl: './buscar.component.css',
+    standalone: false
 })
 export class BuscarComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { ExamenService } from '../../../service/examen.service';
 import { Examen } from '../../../model/examen';
 
 @Component({
-  selector: 'app-examen-edicion',
-  templateUrl: './examen-edicion.component.html',
-  styleUrl: './examen-edicion.component.css'
+    selector: 'app-examen-edicion',
+    templateUrl: './examen-edicion.component.html',
+    styleUrl: './examen-edicion.component.css',
+    standalone: false
 })
 export class ExamenEdicionComponent implements OnInit {
   form: FormGroup;

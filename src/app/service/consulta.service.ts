@@ -33,4 +33,10 @@ export class ConsultaService {
   listarResumen(){
     return this.http.get<ConsultaResumenDTO[]>(`${this.url}/listarResumen`);
   }
+
+  generarReporte(){
+    return this.http.get(`${this.url}/generarReporte`,{
+      responseType:'blob'
+    });
+  }
 }

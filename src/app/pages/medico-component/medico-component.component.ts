@@ -9,9 +9,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MedicoDialogComponent } from './medico-dialog/medico-dialog.component';
 import {switchMap} from 'rxjs/operators';
 @Component({
-  selector: 'app-medico-component',
-  templateUrl: './medico-component.component.html',
-  styleUrl: './medico-component.component.css'
+    selector: 'app-medico-component',
+    templateUrl: './medico-component.component.html',
+    styleUrl: './medico-component.component.css',
+    standalone: false
 })
 export class MedicoComponentComponent implements OnInit {
   dataSource: MatTableDataSource<Medico>;

@@ -14,9 +14,10 @@ import { Consulta } from '../../model/consulta';
 import { ConsultaListaExamenDTO } from '../../dto/consultaListaExamenTDO';
 
 @Component({
-  selector: 'app-consulta',
-  templateUrl: './consulta.component.html',
-  styleUrl: './consulta.component.css'
+    selector: 'app-consulta',
+    templateUrl: './consulta.component.html',
+    styleUrl: './consulta.component.css',
+    standalone: false
 })
 export class ConsultaComponent implements OnInit {
 

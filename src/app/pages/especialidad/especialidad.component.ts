@@ -11,9 +11,10 @@ import { forkJoin } from 'rxjs';
 
 
 @Component({
-  selector: 'app-especialidad',
-  templateUrl: './especialidad.component.html',
-  styleUrl: './especialidad.component.css'
+    selector: 'app-especialidad',
+    templateUrl: './especialidad.component.html',
+    styleUrl: './especialidad.component.css',
+    standalone: false
 })
 export class EspecialidadComponent implements OnInit {
 

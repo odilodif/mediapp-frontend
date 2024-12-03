@@ -5,9 +5,10 @@ import { Paciente } from '../../../model/paciente';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-paciente-edicion',
-  templateUrl: './paciente-edicion.component.html',
-  styleUrl: './paciente-edicion.component.css'
+    selector: 'app-paciente-edicion',
+    templateUrl: './paciente-edicion.component.html',
+    styleUrl: './paciente-edicion.component.css',
+    standalone: false
 })
 export class PacienteEdicionComponent implements OnInit {
   form: FormGroup;

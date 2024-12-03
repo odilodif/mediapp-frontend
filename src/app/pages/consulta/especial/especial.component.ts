@@ -16,9 +16,10 @@ import { Consulta } from '../../../model/consulta';
 import { ConsultaListaExamenDTO } from '../../../dto/consultaListaExamenTDO';
 
 @Component({
-  selector: 'app-especial',
-  templateUrl: './especial.component.html',
-  styleUrl: './especial.component.css'
+    selector: 'app-especial',
+    templateUrl: './especial.component.html',
+    styleUrl: './especial.component.css',
+    standalone: false
 })
 export class EspecialComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MedicoService } from '../../../service/medico.service';
 import {switchMap} from 'rxjs/operators';
 @Component({
-  selector: 'app-medico-dialog',
-  templateUrl: './medico-dialog.component.html',
-  styleUrl: './medico-dialog.component.css'
+    selector: 'app-medico-dialog',
+    templateUrl: './medico-dialog.component.html',
+    styleUrl: './medico-dialog.component.css',
+    standalone: false
 })
 export class MedicoDialogComponent implements OnInit {
   medico: Medico

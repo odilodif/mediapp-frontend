@@ -6,9 +6,10 @@ import { ConsultaService } from '../../../service/consulta.service';
 import { ConsultaExamen } from '../../../model/consultaexamen';
 
 @Component({
-  selector: 'app-buscar-dialogo',
-  templateUrl: './buscar-dialogo.component.html',
-  styleUrl: './buscar-dialogo.component.css'
+    selector: 'app-buscar-dialogo',
+    templateUrl: './buscar-dialogo.component.html',
+    styleUrl: './buscar-dialogo.component.css',
+    standalone: false
 })
 export class BuscarDialogoComponent implements OnInit {
   consulta: Consulta;
