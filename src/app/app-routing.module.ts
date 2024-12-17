@@ -13,6 +13,8 @@ import { WizardComponent } from './pages/consulta/wizard/wizard.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { ReporteComponent } from './pages/reporte/reporte.component';
+import { PdfviewerComponent } from './pages/reporte/pdfviewer/pdfviewer.component';
+import { ReportepdfviewerComponent } from './pages/reporte/reportepdfviewer/reportepdfviewer.component';
 
 const routes: Routes = [
   {
@@ -45,6 +47,8 @@ const routes: Routes = [
   { path: 'consulta-wizard', component: WizardComponent },
   { path: 'buscar', component: BuscarComponent },
   { path: 'reporte', component: ReporteComponent },
+  { path: 'pdfviewer', component: PdfviewerComponent },
+  { path: 'reprotepdfviewer', component: ReportepdfviewerComponent },
   {
     path: '**',
     redirectTo: '',

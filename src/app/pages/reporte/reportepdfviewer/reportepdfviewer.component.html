@@ -1,0 +1,40 @@
+
+<button mat-button color="primary" (click)="viewReport()">VerPDF</button>
+<button mat-button color="primary" (click)="downloadPdf()">DescargarPDF</button>
+
+<div *ngIf="pdfSrc; else loading">
+    <!--ngx-extended-pdf-viewer [src]="pdfSrc" useBrowserLocale="true"   ></ngx-extended-pdf-viewer-->
+
+    <ngx-extended-pdf-viewer
+  [src]= "pdfSrc"
+  [showToolbar]="true"
+  [showSidebarButton]="true"
+  [showFindButton]="true"
+  [showPagingButtons]="true"
+  [showDrawEditor]="true"
+  [showStampEditor]="true"
+  [showTextEditor]="true"
+  [showZoomButtons]="true"
+  [showPresentationModeButton]="true"
+  [showOpenFileButton]="true"
+  [showPrintButton]="true"
+  [showDownloadButton]="false"
+  [showSecondaryToolbarButton]="true"
+  
+  [showRotateCwButton]="true"
+  [showRotateCcwButton]="true"
+  [showHandToolButton]="true"
+  [showScrollingButtons]="true"
+  [showSpreadButton]="true"
+  [showPropertiesButton]="true">
+</ngx-extended-pdf-viewer>
+
+  </div>
+
+  
+ 
+
+  <ng-template #loading>
+    <p>Cargando el PDF...</p>
+  </ng-template>
+  

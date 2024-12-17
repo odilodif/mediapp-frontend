@@ -22,7 +22,9 @@ import { HomeComponent } from './pages/home/home/home.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { BuscarDialogoComponent } from './pages/buscar/buscar-dialogo/buscar-dialogo.component';
 import { ReporteComponent } from './pages/reporte/reporte.component';
-
+import { PdfviewerComponent } from './pages/reporte/pdfviewer/pdfviewer.component';
+import {  NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
+import { ReportepdfviewerComponent } from './pages/reporte/reportepdfviewer/reportepdfviewer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ReporteComponent } from './pages/reporte/reporte.component';
     HomeComponent,
     BuscarComponent,
     BuscarDialogoComponent,
-    ReporteComponent
+    ReporteComponent,
+    PdfviewerComponent,
+    ReportepdfviewerComponent
   ],  
   imports: [
     BrowserModule,
@@ -49,7 +53,10 @@ import { ReporteComponent } from './pages/reporte/reporte.component';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    NgxExtendedPdfViewerModule,
+    
+    
   ],
   providers: [
     provideClientHydration(),

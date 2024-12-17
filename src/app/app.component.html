@@ -84,6 +84,21 @@
         <mat-icon>assessment</mat-icon>
         <span>Reportes</span>
       </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/pdfviewer" style="cursor: pointer;">
+        <mat-icon>assessment</mat-icon>
+        <span>Pdfviewer</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="drawer.toggle()" routerLink="/reprotepdfviewer" style="cursor: pointer;">
+        <mat-icon>assessment</mat-icon>
+        <span>ReportePdfViewer</span>
+      </button>
+
+
+
     </mat-drawer>
     <mat-drawer-content>
       <router-outlet></router-outlet>

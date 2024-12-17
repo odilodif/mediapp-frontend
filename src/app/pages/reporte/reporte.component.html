@@ -5,9 +5,29 @@
 <button mat-button color="primary" (click)="cambiar('pie')">Pie</button>
 
 <div [hidden]="!chart">
-    <canvas id="canvas">{{chart}}</canvas>
+  <canvas id="canvas">{{chart}}</canvas>
 </div>
 
-<button mat-button color="primary" (click)="generarReporte()" >PDF</button>
-<button mat-button color="primary" (click)="descargarReporte()" >Dscargar PDF</button>
+<button mat-button color="primary" (click)="generarReportePdfViewer()">PDF</button>
+<button mat-button color="primary" (click)="descargarReporte()">Dscargar PDF</button>
 
+
+
+<!-- Botón de Angular Material para descargar el PDF -->
+<button mat-raised-button color="primary" (click)="downloadPdf()">Descargar PDF</button>
+
+
+<div *ngIf="pdfSrc; else loading">
+  <ngx-extended-pdf-viewer [src]="pdfSrc" useBrowserLocale="true"></ngx-extended-pdf-viewer>
+
+</div>
+
+<ng-template #loading>
+  <p>Cargando el PDF...</p>
+</ng-template>
+
+<button mat-raised-button color="primary" onclick="document.getElementById('flArchivo').click()">Seleccionar.Archivo</button>
+
+<input id="flArchivo" type="file" style="display: none;" (change)="seleccionarArchivo($event)" >
+<p>{{nombreArchivo}}</p>
+<button mat-raised-button color="primary" (click)="subirArchivo()"  [disabled]="!archivosSeleccionados" >Subir.Archivo</button>
