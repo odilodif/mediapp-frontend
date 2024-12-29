@@ -19,11 +19,11 @@ export class ReporteComponent implements OnInit {
   pdfSrc2: SafeResourceUrl | undefined = undefined;
 
   archivosSeleccionados: FileList;
-  archivoSeleccionado:  File | any = null;
+  archivoSeleccionado: File | any = null;
   nombreArchivo: string;
 
-  imagenData:any;
-  imagenEstado:boolean;
+  imagenData: any;
+  imagenEstado: boolean;
 
   isBrowser: boolean;
   selectedFileB64: string = "";
@@ -38,6 +38,46 @@ export class ReporteComponent implements OnInit {
   ngOnInit() {
     this.tipo = 'line';
     this.dibujar();
+
+    this.consultaService.leerArchivo().subscribe({
+      next: (data) => {
+        this.convertirBase64AUrl(data); // Convierte Base64 a un Blob URL seguro
+      },
+      error: (err) => {
+        console.error('Error al leer el archivo:', err);
+      },
+    });
+  }
+
+
+  convertirBase64AUrl(base64Data: string) {
+    // Convierte la cadena Base64 a un Blob
+    const byteCharacters = atob(base64Data);
+    const byteNumbers = new Array(byteCharacters.length).fill(null).map((_, i) => byteCharacters.charCodeAt(i));
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'image/png' }); // Ajusta el tipo MIME según el archivo
+
+    // Crea un Blob URL
+    const blobUrl = URL.createObjectURL(blob);
+    this.imagenData = blobUrl;
+    this.imagenEstado = true;
+  }
+
+  /*convertir(data: any) {
+   
+    const reader = new FileReader();
+    reader.readAsDataURL(data);   //Me creo una url a partir del archivo reader con paramtro data
+    reader.onloadend = () => {    //cargar la memoria a partir del metodo 'onloadend'
+      const base64 = reader.result;
+      console.log(base64);//Base64   //el resultado lo vamos a imprimirlo y ver quesea el Base 64
+      this.setear(base64)
+
+    }
+  }*/
+
+  setear(x: any) {
+    this.imagenData = this.sanitizer.bypassSecurityTrustResourceUrl(x);
+    this.imagenEstado = true;
   }
 
   dibujar() {
@@ -160,15 +200,22 @@ export class ReporteComponent implements OnInit {
 
   seleccionarArchivo(e: any) {
     //console.log(e);
-    this.nombreArchivo= e.target.files[0].name;
-    this.archivosSeleccionados= e.target.files;
+    this.nombreArchivo = e.target.files[0].name;
+    this.archivosSeleccionados = e.target.files;
 
   }
 
-  subirArchivo(){
-    this.archivoSeleccionado=this.archivosSeleccionados.item(0);
+  subirArchivo() {
+    this.archivoSeleccionado = this.archivosSeleccionados.item(0);
     this.consultaService.guardarArchivo(this.archivoSeleccionado).subscribe(data => console.log(data));
   }
 
+  accionImagen(acction: string) {
+    if (acction == "M") {
+      this.imagenEstado = true
+    } else {
+      this.imagenEstado = false
+    }
+  }
 
 }

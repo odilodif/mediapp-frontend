@@ -64,4 +64,19 @@ export class ConsultaService {
 
   }
 
+/*leerArchivo(){
+  return this.http.get(`${this.url}/leerArchivo/3`, {
+    responseType:'blob'
+    
+  });
+}*/
+
+leerArchivo(){
+  return this.http.get(`${this.url}/leerArchivo/3`, {
+    responseType:'text'
+    
+  });
+}
+
+
 }

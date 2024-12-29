@@ -31,3 +31,9 @@
 <input id="flArchivo" type="file" style="display: none;" (change)="seleccionarArchivo($event)" >
 <p>{{nombreArchivo}}</p>
 <button mat-raised-button color="primary" (click)="subirArchivo()"  [disabled]="!archivosSeleccionados" >Subir.Archivo</button>
+
+
+<button mat-button color="primary" (click)="accionImagen('M')">Mostar</button>
+<button mat-button color="primary"  (click)="accionImagen('O')">Ocultar</button>
+
+<img mat-card-image [src]="imagenData" *ngIf="imagenEstado">
