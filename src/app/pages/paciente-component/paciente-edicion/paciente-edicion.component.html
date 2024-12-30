@@ -8,8 +8,10 @@
         </mat-form-field>
 
     </div>
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nombres" required formControlName="nombres">
+    <mat-form-field class="example-full-width">       
+        <div *ngIf="f['nombres'].errors?.['required']" class="invalido" >Nombre es Requerido</div>
+        <div *ngIf="f['nombres'].errors?.['minlength']" class="invalido"  >El Campo debe ser mayor a 3 caracteres </div>
+        <input matInput placeholder="Nombres" minlength="3" required formControlName="nombres">
     </mat-form-field>
    
  

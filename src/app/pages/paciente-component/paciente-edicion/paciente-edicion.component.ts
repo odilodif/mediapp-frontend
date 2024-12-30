@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PacienteServiceService } from '../../../service/paciente-service.service';
 import { Paciente } from '../../../model/paciente';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-    selector: 'app-paciente-edicion',
-    templateUrl: './paciente-edicion.component.html',
-    styleUrl: './paciente-edicion.component.css',
-    standalone: false
+  selector: 'app-paciente-edicion',
+  templateUrl: './paciente-edicion.component.html',
+  styleUrl: './paciente-edicion.component.css',
+  standalone: false
 })
 export class PacienteEdicionComponent implements OnInit {
   form: FormGroup;
@@ -22,8 +22,8 @@ export class PacienteEdicionComponent implements OnInit {
 
     this.form = new FormGroup({
       'idPaciente': new FormControl(0),
-      'nombres': new FormControl(''),
-      'apellidos': new FormControl(''),
+      'nombres': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'apellidos': new FormControl('', Validators.required),
       'dni': new FormControl(''),
       'telefono': new FormControl(''),
       'mail': new FormControl(''),
@@ -37,7 +37,15 @@ export class PacienteEdicionComponent implements OnInit {
     })
   }
 
+  get f() {
+    return this.form.controls;
+  }
+
   operar() {
+
+    if (this.form.invalid) {
+      return;
+    }
     let paciente = new Paciente();
     paciente = this.form.value;
     /* paciente.apellidos = this.form.value['apellidos'];
@@ -48,17 +56,17 @@ export class PacienteEdicionComponent implements OnInit {
     //console.log(paciente)
     if (this.edicion) {
       //console.log(paciente)
-     this.pacienteService.modificar(paciente).subscribe(()=>{
-      this.pacienteService.listarPacientes().subscribe((data)=>{
-        this.pacienteService.pacienteCambio.next(data)
-        this.pacienteService.mensajeCambio.next('SE MODIFICO!!!')
+      this.pacienteService.modificar(paciente).subscribe(() => {
+        this.pacienteService.listarPacientes().subscribe((data) => {
+          this.pacienteService.pacienteCambio.next(data)
+          this.pacienteService.mensajeCambio.next('SE MODIFICO!!!')
+        });
       });
-     });
-    
+
     } else {
 
-      this.pacienteService.registrar(paciente).subscribe(()=>{
-        this.pacienteService.listarPacientes().subscribe((data)=>{
+      this.pacienteService.registrar(paciente).subscribe(() => {
+        this.pacienteService.listarPacientes().subscribe((data) => {
           this.pacienteService.pacienteCambio.next(data);
           this.pacienteService.mensajeCambio.next('SE CREO NUEVO REGISTRO!!!')
         });
@@ -72,7 +80,7 @@ export class PacienteEdicionComponent implements OnInit {
   initForm() {
     if (this.edicion) {
       this.pacienteService.listarPorId(this.id).subscribe((data) => {
-       
+
         this.form = new FormGroup({
           'idPaciente': new FormControl(data.idPaciente),
           'nombres': new FormControl(data.nombres),

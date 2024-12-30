@@ -21,6 +21,10 @@ export class PacienteServiceService {
     return this.http.get<Paciente[]>(this.url);
   }
 
+  listarPageable(p: number, s: number) {
+    return this.http.get<any>(`${this.url}/pageable?page=${p}&size=${s}`);
+  }
+
   listarPorId(idPaciente: number) {
     return this.http.get<Paciente>(`${this.url}/${idPaciente}`);
   }
@@ -36,4 +40,6 @@ export class PacienteServiceService {
   eliminar(idPaciente: number) {
     return this.http.delete(`${this.url}/${idPaciente}`);
   }
+
+  
 }

@@ -66,7 +66,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"[length]="cantidad" (page)="mostrarMas($event)" ></mat-paginator>
 
 <button mat-fab color="accent" style=" float: right; "  routerLink="/paciente/nuevo" >
     <mat-icon >create</mat-icon>
